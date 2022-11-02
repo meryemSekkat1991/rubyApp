@@ -1,7 +1,8 @@
 <p style="color: green"><%= notice %></p>
 <%= link_to "Home", "/" %>
 <h1>Posts Ruby</h1>
-
+<%= current_user.email
+%>
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
