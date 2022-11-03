@@ -1,5 +1,4 @@
-<div id="<%= dom_id post %>">
-  <p>
+ <p>
     <strong>Title:</strong>
     <%= post.title %>
   </p>
@@ -8,5 +7,9 @@
     <strong>Content:</strong>
     <%= post.content %>
   </p>
-
+  <% post.comments.each do |comment| %>
+    <%= comment.user.email %> : </br>
+    <%= comment.description %> : </br>
+  </br>
+  <% end %>
 </div>
