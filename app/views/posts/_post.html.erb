@@ -7,7 +7,11 @@
     <strong>Content:</strong>
     <%= post.content %>
   </p>
- <p>
+   <% if current_user %>
+     <%= button_to "New comment", new_comment_path, method: :get %>
+   <% end %>
+   <strong>Comments Count: <%= Comment.where(:post_id => post.id).count %></strong>
+   </br>
    <strong>Comments:</strong>
    <% post.comments.each do |comment| %>
       <div  style="display: flex">
@@ -18,7 +22,5 @@
        <strong> comment descriptions:  </strong>
       <%= comment.description %>
       </div>
-     </br>
  </p>
-  <% end %>
-</div>
+<% end %>
