@@ -7,8 +7,11 @@
 <div>
 
   <% if current_user && current_user.id == @post.id %>
-    <%= button_to "Edit this post", edit_post_path(@post), method: :get %>
-    <%= button_to "Destroy this post", @post, method: :delete %>
+    <div style="display: flex">
+      <%= button_to "Edit this post", edit_post_path(@post), method: :get %>
+      <span style="margin: 0 5px"></span>
+      <%= button_to "Destroy this post", @post, method: :delete %>
+    </div>
   <% end %>
   </br>
   </br>
