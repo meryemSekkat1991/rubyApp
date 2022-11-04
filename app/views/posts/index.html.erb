@@ -1,15 +1,45 @@
 <p style="color: green"><%= notice %></p>
 <%= link_to "Home", "/" %>
 <h1>Posts Ruby</h1>
-<%= current_user.email
-%>
-<div id="posts">
+
+<div id="posts" style="display: block">
   <% @posts.each do |post| %>
+    <div>----------------------Post unique--------------------------</div>
     <%= render post %>
     <p>
-      <%= link_to "Show this post", post %>
+      <%= link_to "Show this post \n", post %>
     </p>
-  <% end %>
+
+    </br>
+    <div>------------------------end-----------------------</div>
+    </br>
+    </br>
+    </br>
+   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+
+
+<% if current_user %>
+  </br>
+  </br>
+  </br>
+  <p>
+    <%= link_to "New post", new_post_path %>
+  </p>
+
+  <h4>My Posts Comments:</h4>
+  <% current_user.comments.each do |comment|   %>
+    <p>
+      <%= comment.description %>
+    </p>
+  <% end %>
+<% end %>
+
+<h4>Show all  Comments:</h4>
+<% Comment.all.each do |comment| %>
+  <p>
+    <%= comment.description %>
+  </p>
+<% end %>
+

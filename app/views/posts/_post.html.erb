@@ -7,9 +7,18 @@
     <strong>Content:</strong>
     <%= post.content %>
   </p>
-  <% post.comments.each do |comment| %>
-    <%= comment.user.email %> : </br>
-    <%= comment.description %> : </br>
-  </br>
+ <p>
+   <strong>Comments:</strong>
+   <% post.comments.each do |comment| %>
+      <div  style="display: flex">
+        <strong>comment email:  </strong>
+       <%= comment.user.email %>
+      </div>
+      <div style="display: flex;">
+       <strong> comment descriptions:  </strong>
+      <%= comment.description %>
+      </div>
+     </br>
+ </p>
   <% end %>
 </div>
