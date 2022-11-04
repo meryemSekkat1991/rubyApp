@@ -37,9 +37,9 @@
 <% end %>
 
 <h4>Show all  Comments:</h4>
+<strong>Counts:  <%= Comment.count %></strong>
 <% Comment.all.each do |comment| %>
   <p>
     <%= comment.description %>
   </p>
 <% end %>
-
