@@ -29,17 +29,25 @@
       <%= comment.description %>
       </div>
 
-   <% if current_user && comment.user_id == current_user.id %>
-     <div style="display: flex">
+   <div style="display: flex">
+     <% if current_user && comment.user_id == current_user.id %>
+       <div style="display: flex">
        <span style="margin: 0 5px">
          <%= button_to "Edit this comment", edit_comment_path(comment), method: :get %>
        </span>
-       <span style="margin: 0 5px">
+       </div>
+
+     <% end %>
+
+     <% if current_user && post.user_id == current_user.id %>
+       <div style="display: flex">
+      <span style="margin: 0 5px">
           <%= button_to "Destroy this comment", comment, method: :delete %>
        </span>
-     </div>
+       </div>
 
-   <% end %>
+     <% end %>
+   </div>
 
    </p>
 <% end %>
